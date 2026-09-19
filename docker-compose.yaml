@@ -1,0 +1,16 @@
+# Standalone hover-demo for the graphic start-page desk.
+# Not part of DocsGPT. Run from this folder:
+#   docker compose up --build
+# Open: http://localhost:5188
+name: desk-hover-demo
+services:
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - ./frontend/vite.config.ts:/app/vite.config.ts
+    environment:
+      - DOCKER=true
+    ports:
+      - "5188:5188"
